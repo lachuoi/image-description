@@ -37,7 +37,7 @@ jobs:
       - name: generate checksums
         run: |
           cd target/wasm32-wasip1/release
-          sha256sum image_descrpition.wasm > ../../../checksums-${{ env.RELEASE_VERSION }}.txt
+          sha256sum image_description.wasm > ../../../checksums-${{ env.RELEASE_VERSION }}.txt
 
       - name: Create release
         uses: softprops/action-gh-release@v1
@@ -45,7 +45,7 @@ jobs:
           fail_on_unmatched_files: true
           generate_release_notes: true
           files: |
-            target/wasm32-wasip1/release/image_descrpition.wasm
+            target/wasm32-wasip1/release/image_description.wasm
             checksums-${{ env.RELEASE_VERSION }}.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
